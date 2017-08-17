@@ -1,0 +1,16 @@
+version: "3"
+services:
+  jekyll:
+    container_name: jekyll
+    image: ruby
+    ports:
+      - "4000:4000"
+    expose:
+      - "4000"
+    volumes:
+      - "$HOME/.bundle:/usr/local/bundle"
+      - "$PWD:/usr/src/app/qiangmao.github.io"
+    working_dir: /usr/src/app/qiangmao.github.io
+    command: ["jekyll", "serve", "--host=0.0.0.0"]
+    restart: "no" 
+    
